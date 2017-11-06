@@ -1,4 +1,4 @@
-package rest;
+package com.homework.rest;
 
 
 import com.homework.db.DataBaseConnectionFactory;

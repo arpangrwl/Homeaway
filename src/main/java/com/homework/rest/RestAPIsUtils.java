@@ -1,4 +1,4 @@
-package rest;
+package com.homework.rest;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,8 +10,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-
-import static rest.RestAPIConstants.*;
 
 /**
  * Created by Arpan on 11/5/17.
@@ -59,8 +57,8 @@ public class RestAPIsUtils {
     input gitHubURL : - "https://github.com/username"
      */
     public static String getRepositoryURLString(String gitHubURL) {
-        String userName = gitHubURL.replace(gitHubBaseLink, "");
-        return usersRepositoriesURL.replace("USERNAME", userName);
+        String userName = gitHubURL.replace(RestAPIConstants.gitHubBaseLink, "");
+        return RestAPIConstants.usersRepositoriesURL.replace("USERNAME", userName);
     }
 
     public static ArrayList<String> getListOfUserRepositories(String gitHubURL) {
@@ -81,12 +79,12 @@ public class RestAPIsUtils {
     public static ArrayList<String> getListedFilesOfFileExtension(String gitHubURL, String repository, String fileExtension) {
 
         ArrayList<String> listOfFileAndDirectories = new ArrayList<String>();
-        String userName = gitHubURL.replace(gitHubBaseLink, "");
+        String userName = gitHubURL.replace(RestAPIConstants.gitHubBaseLink, "");
         String fileOrDirName = "";
         String gitRepositoryPath = "";
         String fileType = "";
 
-        String baseRepositoryURL = repositoryContentURL.replace("REPOSITORY", repository).replace("USERNAME", userName);
+        String baseRepositoryURL = RestAPIConstants.repositoryContentURL.replace("REPOSITORY", repository).replace("USERNAME", userName);
         String repositoryURLResults = RestAPIsUtils.getRestAPIRequest(baseRepositoryURL);
 
         JSONArray jsonarray = new JSONArray(repositoryURLResults);
@@ -152,7 +150,7 @@ public class RestAPIsUtils {
     }
 
     public static String getUserName(String gitHubURL) {
-        return gitHubURL.replace(gitHubBaseLink, "");
+        return gitHubURL.replace(RestAPIConstants.gitHubBaseLink, "");
     }
 
 //    public static void main(String[] args) {

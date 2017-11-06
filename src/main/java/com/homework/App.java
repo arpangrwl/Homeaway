@@ -1,6 +1,6 @@
 package com.homework;
 
-import rest.RestAPIs;
+import com.homework.rest.*;
 
 import java.util.Scanner;
 

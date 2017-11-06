@@ -1,4 +1,4 @@
-package rest;
+package com.homework.rest;
 
 /**
  * Created by Arpan on 11/5/17.
