@@ -27,7 +27,8 @@ This endpoint returns the list of files from the database, that match the inputs
 Projects Limitations :-
 ---
 ```
-Below are the limitation of the project.  Github API only allow 60 Rest API request to be fired in an hour. (https://developer.github.com/v3/#rate-limiting)
+Below are the limitation of the project.  Github API only allow 60 Rest API request to be fired in an hour.
+Details can be further checked on (https://developer.github.com/v3/#rate-limiting)
 And to get all the file contents for a Git repository one has to recursively fire git API request to retrieve file name.
 So it is very much possible that these 60 GIT API request will get consumed while working on a single Users Repository.
 ```
@@ -38,13 +39,13 @@ Solutions:-
 ---
 Below API will store all the files related to gitHub URL of fileExtension to a give database name
 ```
-######RestAPIs.restoreGitHubFileOnDataBase(gitHubURL, fileExtension, DatabaseName);
+**RestAPIs.restoreGitHubFileOnDataBase(gitHubURL, fileExtension, DatabaseName);**
 ```
 
 
 Below API returns the list of files from the database, that match the inputs.
 ```
-######RestAPIs.restoreGitHubFileOnDataBase(gitHubURL, fileExtension, DatabaseName);
+**RestAPIs.restoreGitHubFileOnDataBase(gitHubURL, fileExtension, DatabaseName);**
 ```
 
 ---
