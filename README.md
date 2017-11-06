@@ -24,6 +24,16 @@ This endpoint returns the list of files from the database, that match the inputs
 
 ---
 
+PreRequisite :-
+---
+
+1. User needs to have java 8 installed on the system.
+2. User need to install MySql on the system.
+
+Note : This app has been tested on Server version: 5.7.20 MySQL Community Server (GPL)
+
+---
+
 Projects Limitations :-
 ---
 ```
