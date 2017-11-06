@@ -1,5 +1,6 @@
 package com.homework.rest;
 
+import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -15,6 +16,8 @@ import java.util.ArrayList;
  * Created by Arpan on 11/5/17.
  */
 public class RestAPIsUtils {
+    private static final Logger logger = Logger.getLogger(RestAPIsUtils.class);
+
 
     public static String getRestAPIRequest(String URLString) {
         StringBuilder sb = new StringBuilder();
@@ -26,6 +29,7 @@ public class RestAPIsUtils {
             conn.setRequestProperty("Accept", "application/json");
 
             if (conn.getResponseCode() != 200) {
+                logger.error("Unable to get the response from Rest API request");
                 throw new RuntimeException("Failed : HTTP error code : "
                         + conn.getResponseCode());
             }
@@ -40,14 +44,16 @@ public class RestAPIsUtils {
             conn.disconnect();
 
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            logger.error("Rest API request URL is not properly formed :- ", e);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Rest API request is not servered due to network issues : -", e);
+        } catch (Exception e) {
+            logger.error("Unknown exception :- ", e);
         } finally {
             try {
                 br.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error("Unknown exceptionUnable to close the Rest API connection :- ", e);
             }
         }
         return sb.toString();

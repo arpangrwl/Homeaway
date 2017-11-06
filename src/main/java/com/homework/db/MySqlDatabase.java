@@ -1,5 +1,7 @@
 package com.homework.db;
 
+import org.apache.log4j.Logger;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.List;
  * Created by Arpan on 11/5/17.
  */
 public class MySqlDatabase implements DatabaseConnection {
+    private static final Logger logger = Logger.getLogger(MySqlDatabase.class);
 
     private String driver;
     private String connectionURL;
@@ -22,8 +25,6 @@ public class MySqlDatabase implements DatabaseConnection {
         password = DatabaseUtils.prop.getProperty("mysql.Password");
     }
 
-
-
     @Override
     public Connection establishDBConnection() {
         Connection connection = null;
@@ -33,8 +34,7 @@ public class MySqlDatabase implements DatabaseConnection {
             Class.forName(getDriver());
             connection = DriverManager.getConnection(getConnectionURL(), getUserName(), getPassword());
         } catch (Exception e) {
-            System.err.println("Got an exception! ");
-            System.err.println(e.getMessage());
+            logger.error("Unable to connect to DB",e);
         }
         return connection;
     }
@@ -71,10 +71,10 @@ public class MySqlDatabase implements DatabaseConnection {
 
             // execute the SQL stetement
             preparedStatement.executeUpdate();
-            System.out.println("Table \"UsersGitRepoDetails\" is created!");
+            logger.info("Table \"UsersGitRepoDetails\" is created!");
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            logger.error("Unable to create the SQL table :- ", e);
         } finally {
             try {
                 if (preparedStatement != null) {
@@ -84,7 +84,7 @@ public class MySqlDatabase implements DatabaseConnection {
                     dbConnection.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                logger.error("Unable to close the DB clonection :- ", e);
             }
         }
     }
@@ -113,11 +113,11 @@ public class MySqlDatabase implements DatabaseConnection {
                 try {
                     preparedStatement.executeUpdate();
                 }catch(SQLException e){
-                    System.out.println("Record already present "+ fileName);
+                    logger.info("Record already present, skipping filename :- "+ fileName);
                 }
             }
 
-            System.out.println("Record is inserted into DBUSER table!");
+            logger.info("Records are inserted into DBUSER table!");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -130,7 +130,7 @@ public class MySqlDatabase implements DatabaseConnection {
                     dbConnection.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                logger.error("Unable to close the DB clonection :- ", e);
             }
         }
     }
@@ -157,7 +157,7 @@ public class MySqlDatabase implements DatabaseConnection {
                 listOfRecords.add(rs.getString("fileName"));
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            logger.error("Unable to execute the query :- ", e);
         } finally {
             try {
                 if (preparedStatement != null) {
@@ -167,7 +167,7 @@ public class MySqlDatabase implements DatabaseConnection {
                     dbConnection.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                logger.error("Unable to close the DB clonection :- ", e);
             }
         }
         return listOfRecords;

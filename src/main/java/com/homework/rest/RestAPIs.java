@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class RestAPIs {
     private static final Logger logger = Logger.getLogger(RestAPIs.class);
 
-    public static String restoreGitHubFileOnDataBase(String gitHubURL, String fileExtension, String DatabaseName) {
+    public static void restoreGitHubFileOnDataBase(String gitHubURL, String fileExtension, String DatabaseName) {
 
         DatabaseConnection pc = DataBaseConnectionFactory.getDatabase(DatabaseName);
         for (String repository : RestAPIsUtils.getListOfUserRepositories(gitHubURL)) {
@@ -21,7 +21,6 @@ public class RestAPIs {
                     (gitHubURL, repository, fileExtension));
 
         }
-        return null;
     }
 
     public static ArrayList<String> listOfMatchingDatabaseAndRestAPIRecords(String gitHubURL, String fileExtension, String DatabaseName){
