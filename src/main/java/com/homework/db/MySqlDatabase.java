@@ -117,7 +117,7 @@ public class MySqlDatabase implements DatabaseConnection {
                 }
             }
 
-            logger.info("Records are inserted into DBUSER table!");
+            logger.info("Records are inserted into UsersGitRepoDetails table!");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
