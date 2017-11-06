@@ -1,9 +1,8 @@
 package com.homework;
 
-import com.homework.rest.*;
+import com.homework.rest.RestAPIs;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -45,8 +44,8 @@ Create another Java-based REST API endpoint that takes in the following inputs
 3. A set of file extensions (e.g. java, css, js)
 This endpoint returns the list of files from the database, that match the inputs.
 */
-        ArrayList<String> matchingFiles = RestAPIs.listOfMatchingDatabaseAndRestAPIRecords(gitHubURL, fileExtension, DatabaseName);
-        matchingFiles.stream().forEach(System.out::print);
+        //ArrayList<String> matchingFiles = RestAPIs.listOfMatchingDatabaseAndRestAPIRecords(gitHubURL, fileExtension, DatabaseName);
+        //matchingFiles.stream().forEach(System.out::print);
     }
 
 }
