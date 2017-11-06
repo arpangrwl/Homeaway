@@ -37,10 +37,12 @@ Note : This app has been tested on Server version: 5.7.20 MySQL Community Server
 Project's Limitations :-
 ---
 ```
-Below are the limitation of the project.  Github API only allow 60 Rest API request to be fired in an hour.
-Details can be further checked on (https://developer.github.com/v3/#rate-limiting)
-And to get all the file contents for a Git repository one has to recursively fire git API request to retrieve file name.
-So it is very much possible that these 60 GIT API request will get consumed while working on a single Users Repository.
+Below are the limitation of the project:-
+Github API only allow 60 Rest API request to be fired in an hour.
+Details can be further checked on (https://developer.github.com/v3/#rate-limiting).
+
+To get all the file contents for a Git repository one has to recursively fire git API request to retrieve file name.
+So it is possible that these 60 GIT API request will get consumed while working on a single Users Repository.
 ```
 
 ---
