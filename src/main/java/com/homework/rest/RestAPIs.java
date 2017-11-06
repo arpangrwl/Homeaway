@@ -3,19 +3,20 @@ package com.homework.rest;
 
 import com.homework.db.DataBaseConnectionFactory;
 import com.homework.db.DatabaseConnection;
-
+import org.apache.log4j.Logger;
 import java.util.ArrayList;
 
 /**
  * Created by Arpan on 11/5/17.
  */
 public class RestAPIs {
+    private static final Logger logger = Logger.getLogger(RestAPIs.class);
 
     public static String restoreGitHubFileOnDataBase(String gitHubURL, String fileExtension, String DatabaseName) {
 
         DatabaseConnection pc = DataBaseConnectionFactory.getDatabase(DatabaseName);
         for (String repository : RestAPIsUtils.getListOfUserRepositories(gitHubURL)) {
-            // System.out.println("------ ** " + repository + " ** ------");
+            logger.debug("Working repository name " + repository);
             pc.saveRecordsUsersGitRepoDetails(RestAPIsUtils.getUserName(gitHubURL), repository, fileExtension, RestAPIsUtils.getListedFilesOfFileExtension
                     (gitHubURL, repository, fileExtension));
 

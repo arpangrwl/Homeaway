@@ -1,6 +1,7 @@
 package com.homework;
 
 import com.homework.rest.*;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,6 +11,7 @@ import java.util.Scanner;
  */
 
 public class App {
+    private static final Logger logger = Logger.getLogger(App.class);
 
     public static void main(String[] args) {
 
@@ -25,7 +27,8 @@ public class App {
         System.out.println("Please enter the name of database you want to insert data in example:- \"mysql\" ");
         String DatabaseName = reader.nextLine();
 
-
+        logger.debug("Input Parameters Passed Github repository:- " + gitHubURL + "\n file extension:- " + fileExtension
+        + "\n Database Name:- " + DatabaseName );
  /*
 Create a Java-based REST API endpoint that takes in the following inputs
 1. A set of Github orgs (e.g. https://github.com/seiyria )
