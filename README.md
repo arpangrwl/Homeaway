@@ -57,7 +57,7 @@ RestAPIs.restoreGitHubFileOnDataBase(gitHubURL, fileExtension, DatabaseName);
 
 Below API returns the list of files from the database, that match the inputs.
 ```
-RestAPIs.listOfMatchingDatabaseAndRestAPIRecords(gitHubURL.trim(), fileExtension.trim(), DatabaseName.trim());
+RestAPIs.listOfMatchingDatabaseAndRestAPIRecords(gitHubURL, fileExtension, DatabaseName);
 ```
 
 ---
