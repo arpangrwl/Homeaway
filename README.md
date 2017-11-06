@@ -1,6 +1,8 @@
-#Problem statement :-
+Problem statement :-
+===
 
-###Create a Java-based REST API endpoint that takes in the following inputs
+Create a Java-based REST API endpoint that takes in the following inputs
+---
 1. A set of Github orgs (e.g. https://github.com/seiyria )
 2. A set of file extensions (e.g. java, css, js)
 3. Name of a database (for Mongo/MySQL/MSSQL etc) or keyspace (for C*/DynamoDB etc) on
