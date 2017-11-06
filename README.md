@@ -39,13 +39,13 @@ Solutions:-
 ---
 Below API will store all the files related to gitHub URL of fileExtension to a give database name
 ```
-**RestAPIs.restoreGitHubFileOnDataBase(gitHubURL, fileExtension, DatabaseName);**
+RestAPIs.restoreGitHubFileOnDataBase(gitHubURL, fileExtension, DatabaseName);
 ```
 
 
 Below API returns the list of files from the database, that match the inputs.
 ```
-**RestAPIs.restoreGitHubFileOnDataBase(gitHubURL, fileExtension, DatabaseName);**
+RestAPIs.restoreGitHubFileOnDataBase(gitHubURL, fileExtension, DatabaseName);
 ```
 
 ---
