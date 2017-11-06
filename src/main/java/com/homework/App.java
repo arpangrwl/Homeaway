@@ -45,7 +45,7 @@ Create another Java-based REST API endpoint that takes in the following inputs
 3. A set of file extensions (e.g. java, css, js)
 This endpoint returns the list of files from the database, that match the inputs.
 */
-        ArrayList<String> matchingFiles = RestAPIs.listOfMatchingDatabaseAndRestAPIRecords(gitHubURL, fileExtension, DatabaseName);
+        ArrayList<String> matchingFiles = RestAPIs.listOfMatchingDatabaseAndRestAPIRecords(gitHubURL.trim(), fileExtension.trim(), DatabaseName.trim());
         matchingFiles.stream().forEach(System.out::print);
     }
 
