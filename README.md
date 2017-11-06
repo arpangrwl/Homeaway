@@ -38,13 +38,19 @@ RestAPIs.restoreGitHubFileOnDataBase(gitHubURL, fileExtension, DatabaseName);
 
 
 Log :-
-onnected to the target VM, address: '127.0.0.1:64789', transport: 'socket'
+Connected to the target VM, address: '127.0.0.1:64789', transport: 'socket'
 Please enter the Github repository example:- "https://github.com/arpangrwl"
+
 https://github.com/nipunalways
+
 Please enter the file extension example:- "java"  or  "txt"
+
 java
+
 Please enter the name of database you want to insert data in example:- "mysql"
+
 mysql
+
 2017-11-06 00:14:22 INFO  DataBaseConnectionFactory:14 - Selected Database is MYSQL
 2017-11-06 00:18:21 INFO  MySqlDatabase:74 - Table "UsersGitRepoDetails" is created!
 2017-11-06 00:18:21 INFO  MySqlDatabase:120 - Records are inserted into UsersGitRepoDetails table!
@@ -59,9 +65,9 @@ Process finished with exit code 0
 Inserted Values in DB
 
 mysql> select * from UsersGitRepoDetails;
-+-------------+------------+---------------+-----------------------------------------------------------------------------------+
++-------------+------------+---------------+----------------------------------------------------------------------------------
 | userName    | repository | fileExtension | fileName                                                                          |
-+-------------+------------+---------------+-----------------------------------------------------------------------------------+
++-------------+------------+---------------+----------------------------------------------------------------------------------
 | nipunalways | MyCode     | java          | https://github.com/nipunalways/MyCode/blob/master/src/List/ComparatorExample.java |
 | nipunalways | MyCode     | java          | https://github.com/nipunalways/MyCode/blob/master/src/List/Cursors.java           |
 | nipunalways | MyCode     | java          | https://github.com/nipunalways/MyCode/blob/master/src/List/ListExamples.java      |
