@@ -2,6 +2,8 @@ package com.homework.rest;
 
 /**
  * Created by Arpan on 11/5/17.
+ *
+ * Some Rest API constants used.
  */
 public interface RestAPIConstants {
 

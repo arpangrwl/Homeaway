@@ -14,11 +14,19 @@ import java.util.ArrayList;
 
 /**
  * Created by Arpan on 11/5/17.
+ *
+ * This class has some Utility function.
+ *
  */
 public class RestAPIsUtils {
     private static final Logger logger = Logger.getLogger(RestAPIsUtils.class);
 
 
+    /**
+     * This function for connecting to Rest API and getting results
+     * @param URLString github api URL
+     * @return Output from the fired query
+     */
     public static String getRestAPIRequest(String URLString) {
         StringBuilder sb = new StringBuilder();
         BufferedReader br = null;
@@ -59,14 +67,21 @@ public class RestAPIsUtils {
         return sb.toString();
     }
 
-    /*
-    input gitHubURL : - "https://github.com/username"
+    /**
+     * Returns the repository URL String
+     * @param gitHubURL "https://github.com/username"
+     * @return
      */
     public static String getRepositoryURLString(String gitHubURL) {
         String userName = gitHubURL.replace(RestAPIConstants.gitHubBaseLink, "");
         return RestAPIConstants.usersRepositoriesURL.replace("USERNAME", userName);
     }
 
+    /**
+     * This function gets the List Of User Repositories
+     * @param gitHubURL
+     * @return
+     */
     public static ArrayList<String> getListOfUserRepositories(String gitHubURL) {
 
         String repositoryURLResults = RestAPIsUtils.getRestAPIRequest(RestAPIsUtils.getRepositoryURLString(gitHubURL));
@@ -82,6 +97,14 @@ public class RestAPIsUtils {
         return listOfRepositories;
     }
 
+    /**
+     * This function return Listed of Files for requested FileExtension
+     *
+     * @param gitHubURL Users Github URL
+     * @param fileExtension File extension
+     * @param repository Name of repository
+     * @return  Listed of Files for requested FileExtension
+     */
     public static ArrayList<String> getListedFilesOfFileExtension(String gitHubURL, String repository, String fileExtension) {
 
         ArrayList<String> listOfFileAndDirectories = new ArrayList<String>();
@@ -116,6 +139,13 @@ public class RestAPIsUtils {
         return listOfFileAndDirectories;
     }
 
+    /**
+     * This function gets the List Of File each Directory
+     * @param baseRepositoryURL base Repository URL
+     * @param gitRepositoryPath Path of directory to be searched
+     * @param fileExtension File extension
+     * @return return list of Files
+     */
     private static ArrayList<String> getListOfFileFromDirectory(String baseRepositoryURL, String gitRepositoryPath, String fileExtension) {
         ArrayList<String> listOfFiles = new ArrayList<String>();
         String fileOrDirName = "";
@@ -145,6 +175,12 @@ public class RestAPIsUtils {
         return listOfFiles;
     }
 
+    /**
+     * Check the files associated with mentioned extension
+     * @param fileOrDirName
+     * @param fileExtension
+     * @return
+     */
     private static boolean checkFileExtension(String fileOrDirName, String fileExtension) {
 
         String fileType = fileOrDirName.substring(fileOrDirName.lastIndexOf(".") + 1);
@@ -155,6 +191,11 @@ public class RestAPIsUtils {
             return false;
     }
 
+    /**
+     * Return the user name from gitHubURL
+     * @param gitHubURL
+     * @return User name
+     */
     public static String getUserName(String gitHubURL) {
         return gitHubURL.replace(RestAPIConstants.gitHubBaseLink, "");
     }

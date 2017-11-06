@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 /**
  * Created by Arpan on 11/5/17.
+ *
+ * This is the main class of the Project to execute the available APIs.
  */
 
 public class App {

@@ -8,10 +8,18 @@ import java.util.ArrayList;
 
 /**
  * Created by Arpan on 11/5/17.
+ *
+ * This class contains Rest API functions to get the list of files name for Github site and to store it into a database.
  */
 public class RestAPIs {
     private static final Logger logger = Logger.getLogger(RestAPIs.class);
 
+    /**
+     * This gets the list of files name for Github site and to store it into a database
+     * @param gitHubURL Users Github URL
+     * @param fileExtension File extension
+     * @param DatabaseName Database name
+     */
     public static void restoreGitHubFileOnDataBase(String gitHubURL, String fileExtension, String DatabaseName) {
 
         DatabaseConnection pc = DataBaseConnectionFactory.getDatabase(DatabaseName.trim());
@@ -23,6 +31,13 @@ public class RestAPIs {
         }
     }
 
+    /**
+     * This function return the list of file present at Github and at DB.
+     * @param gitHubURL Users Github URL
+     * @param fileExtension File extension
+     * @param DatabaseName Database name
+     * @return list of common files
+     */
     public static ArrayList<String> listOfMatchingDatabaseAndRestAPIRecords(String gitHubURL, String fileExtension, String DatabaseName){
         ArrayList<String> listOfGitRecords = new ArrayList<String>();
         ArrayList<String> listOfDBRecords = new ArrayList<String>();

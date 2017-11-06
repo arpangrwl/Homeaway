@@ -4,7 +4,12 @@ import org.apache.log4j.Logger;
 
 /**
  * Created by Arpan on 11/5/17.
+ *
+ * This class provides the type of database connection based on provided Database name
+ *
  */
+
+
 public class DataBaseConnectionFactory {
     private static final Logger logger = Logger.getLogger(DataBaseConnectionFactory.class);
 

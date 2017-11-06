@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Created by Arpan on 11/5/17.
+ *
  */
 public interface DatabaseConnection {
 

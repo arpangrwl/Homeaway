@@ -8,12 +8,20 @@ import java.util.Properties;
 
 /**
  * Created by Arpan on 11/5/17.
+ *
+ * This class contains some database basic utility functions
+ *
  */
+
 public class DatabaseUtils {
     private static final Logger logger = Logger.getLogger(DatabaseUtils.class);
 
     public static Properties prop = null;
 
+    /**
+     *  This method reads database.properties required for DB connections
+     *
+     */
     public static void setDatabaseProperties() {
 
         prop = new Properties();

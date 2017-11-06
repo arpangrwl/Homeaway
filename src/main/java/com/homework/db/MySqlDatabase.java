@@ -8,6 +8,10 @@ import java.util.List;
 
 /**
  * Created by Arpan on 11/5/17.
+ *
+ * This class contain function for maintain DB connection, Creating DB table , inserting values in DB,
+ * and firing select statement on database.
+ *
  */
 public class MySqlDatabase implements DatabaseConnection {
     private static final Logger logger = Logger.getLogger(MySqlDatabase.class);
@@ -17,6 +21,11 @@ public class MySqlDatabase implements DatabaseConnection {
     private String userName;
     private String password;
 
+    /**
+     * This default constructor is used in getting DB properties from database.properties files
+     * and setting method variables.
+     *
+     */
     MySqlDatabase() {
         DatabaseUtils.setDatabaseProperties();
         driver = DatabaseUtils.prop.getProperty("mysql.Driver");
@@ -25,6 +34,10 @@ public class MySqlDatabase implements DatabaseConnection {
         password = DatabaseUtils.prop.getProperty("mysql.Password");
     }
 
+    /**
+     * This method is for establishing DB connection
+     * @return Connection of DB
+     */
     @Override
     public Connection establishDBConnection() {
         Connection connection = null;
@@ -39,8 +52,11 @@ public class MySqlDatabase implements DatabaseConnection {
         return connection;
     }
 
-    //Table UsersGitRepoDetails structure
-    //Column names :- userName, repository, fileExtension, fileName
+    /**
+     *  Creating table UsersGitRepoDetails
+     *  DB Column names :- userName, repository, fileExtension, fileName
+     *
+     */
     public void createBaseTableIfNotExist() {
         MySqlDatabase mySqlDatabase = new MySqlDatabase();
         Connection dbConnection = null;
@@ -89,7 +105,14 @@ public class MySqlDatabase implements DatabaseConnection {
         }
     }
 
-    // Bulk insert in UsersGitRepoDetails
+    /**
+     * This is for saving records at UsersGitRepoDetails
+     * @param userName  name of user
+     * @param repository  Name of repository
+     * @param fileExtension File Extension
+     * @param listOfFileName  HTML link of file name
+     *
+     */
     public void saveRecordsUsersGitRepoDetails(String userName, String repository, String fileExtension, List<String> listOfFileName) {
         MySqlDatabase mySqlDatabase = new MySqlDatabase();
         createBaseTableIfNotExist();
@@ -135,6 +158,13 @@ public class MySqlDatabase implements DatabaseConnection {
         }
     }
 
+    /**
+     * Select statement on UsersGitRepoDetails table to get the list of Filename associated with user's repository for any given extension
+     * @param userName  name of user
+     * @param repository Repo name
+     * @param fileExtension file extension name
+     * @return List of File name
+     */
     public ArrayList<String> getRequestedUsersRecords(String userName, String repository, String fileExtension) {
         ArrayList<String> listOfRecords = new ArrayList<String>();
         MySqlDatabase mySqlDatabase = new MySqlDatabase();
