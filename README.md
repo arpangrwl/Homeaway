@@ -34,7 +34,7 @@ Note : This app has been tested on Server version: 5.7.20 MySQL Community Server
 
 ---
 
-Projects Limitations :-
+Project's Limitations :-
 ---
 ```
 Below are the limitation of the project.  Github API only allow 60 Rest API request to be fired in an hour.
